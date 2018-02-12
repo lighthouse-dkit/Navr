@@ -1,0 +1,10 @@
+package com.example.chongjiale.navr;
+
+/**
+ * Created by chongjiale on 11/02/2018.
+ */
+
+public class WikitudeConstant {
+
+    public static final String WIKITUDE_SDK_KEY ="Pal2PAeyc0YGr6lJSGDwHjUZU3FiBUJofRVedjXf4zu0h5kP7mHO1FgjR5/76fBnGecRXNurSIRkFRNPbkARg6HFuQ2xU0Ft6MWbwTHWhqDFBOBdFqN1kXBBnAx8Odi5HatKEGMsouXg+jlK0IfWO/CX7ON4XTcjx/VVSCf09JFTYWx0ZWRfX1BVRVPy3m7tup4EyfdBbZBCzYNqa/xjKm/kvK5782wO83fTs1NnfrAF8E/pxkQqz4HNfd7Gzro9PCo+tfaC6Gw/E9Ds0nCZ0/5shjbPul9LTsYMle3AlfdOvN+ZiqW6a9a2SbvFmC0B/hZUeV8pQv/TAnH3flyOof4rkKOawYAmJz+t/ikAUg5ejC3XJNClDCfIPB6BQXr8KVRyln09ihRnKdTZvICoEcURlqKz/TOwFVxZMW8UTgffkBmzOlrCB2ZXsTK20KLyzAXu0T9lh5ZUp7NJrypJJRRBJ5MIsvOho89+bkLMs2Pld/Up6CuFA4xjx8WFIsmqMRhL4MOZPL2hEqp0Z9h3MsEtkjnUv5Ckv28UvP0+nAyQXbytGc4Lc/7nz5o8bCJX87iL9fsCAYYdoXSmM/hf47GN3SIfqHkXm9N84Bf0R9felzmOJmJ580TKYxjfQMfLGD7A3yn8vc/aGi/bUC5P6ulGFLf29H9WYV+0UbAkQ28IzY2gYUGiripo0S9MeCxs7TL3zrApc7xr6rH6XB2R1A==";
+}
