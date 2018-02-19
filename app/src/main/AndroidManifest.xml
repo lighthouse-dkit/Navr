@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- Tell the system this app requires OpenGL ES 2.0. -->
     <uses-feature
@@ -16,6 +17,9 @@
         android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+    <uses-feature
         android:name="android.hardware.location"
         android:required="true" />
     <uses-feature
@@ -23,6 +27,10 @@
         android:required="true" />
     <uses-feature
         android:name="android.hardware.sensor.compass"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
         android:required="true" />
 
     <application
@@ -50,7 +58,8 @@
             android:name=".MarkerTracker"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor" />
-        <activity android:name=".RoomSearching"></activity>
+        <activity android:name=".RoomSearching" />
+        <activity android:name=".ArNavigateActivity"></activity>
     </application>
 
 </manifest>

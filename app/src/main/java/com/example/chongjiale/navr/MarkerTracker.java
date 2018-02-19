@@ -105,8 +105,7 @@ public class MarkerTracker extends Activity implements ImageTrackerListener, Ext
     @Override
     public void onImageRecognized(ImageTracker tracker, final ImageTarget target) {
         Log.v(TAG, "Recognized target " + target.getName());
-//        mDropDownAlert.dismiss();
-//
+
         StrokedRectangle strokedRectangle = new StrokedRectangle(StrokedRectangle.Type.STANDARD);
         mGLRenderer.setRenderablesForKey(target.getName() + target.getUniqueId(), strokedRectangle, null);
         Intent intent = new Intent(this, RoomSearching.class);
