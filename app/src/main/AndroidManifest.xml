@@ -4,9 +4,11 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!-- Tell the system this app requires OpenGL ES 2.0. -->
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -32,6 +34,9 @@
     <uses-feature
         android:name="android.hardware.sensor.gyroscope"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -40,6 +45,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_KEY"
+            android:value="a9f43d1c-bf33-469f-a774-9eb7c37207ba" />
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_SECRET"
+            android:value="dp48DhqNd4vP5uRjBhSmB/H4kuBMEhFnHCJiJCYcaOgR5/QKKO473AOdHLj5n04pN/KHBjQoqHF23iGGqwHncXyWXCUE3BXyWKgbrl99LSsqdHz552S7E134Fw7iGQ=="
+            />
 
         <!-- Splash Screen Activity -->
         <activity

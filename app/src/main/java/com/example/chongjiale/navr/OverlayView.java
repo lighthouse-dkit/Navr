@@ -25,7 +25,7 @@ import android.view.View;
  * Created by chongjiale on 19/02/2018.
  */
 
-public class OverlayView extends View implements SensorEventListener, LocationListener {
+public class OverlayView extends View implements SensorEventListener{
 
     public static final String DEBUG_TAG = "OverlayView Log";
     String accelerometer = "Accelerometer Data";
@@ -46,22 +46,22 @@ public class OverlayView extends View implements SensorEventListener, LocationLi
         boolean isGyroAvailable = sensors.registerListener(this, gyroSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
 
-        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-        criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
-
-        String best = locationManager.getBestProvider(criteria, true);
-
-        Log.v(DEBUG_TAG, "Best provider: " + best);
-
-        if ( Build.VERSION.SDK_INT >= 23 &&
-                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return  ;
-        }
-
-        locationManager.requestLocationUpdates(best, 50, 0, this);
+//        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+//        Criteria criteria = new Criteria();
+//        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+//        criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
+//
+//        String best = locationManager.getBestProvider(criteria, true);
+//
+//        Log.v(DEBUG_TAG, "Best provider: " + best);
+//
+//        if ( Build.VERSION.SDK_INT >= 23 &&
+//                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED &&
+//                ContextCompat.checkSelfPermission( context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            return  ;
+//        }
+//
+//        locationManager.requestLocationUpdates(best, 50, 0, this);
     }
 
 
@@ -106,19 +106,19 @@ public class OverlayView extends View implements SensorEventListener, LocationLi
     }
 
 
-    public void onLocationChanged(Location location) {
-        lastLocation = location;
-    }
-
-    public void onProviderDisabled(String provider) {
-        // ...
-    }
-
-    public void onProviderEnabled(String provider) {
-        // ...
-    }
-
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        // ...
-    }
+//    public void onLocationChanged(Location location) {
+//        lastLocation = location;
+//    }
+//
+//    public void onProviderDisabled(String provider) {
+//        // ...
+//    }
+//
+//    public void onProviderEnabled(String provider) {
+//        // ...
+//    }
+//
+//    public void onStatusChanged(String provider, int status, Bundle extras) {
+//        // ...
+//    }
 }

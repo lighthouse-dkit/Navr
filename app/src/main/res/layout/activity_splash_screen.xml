@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,22 +12,18 @@
         android:layout_height="250dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="47dp"
         android:contentDescription="DKIT NAVR"
         android:scaleType="fitXY"
         android:src="@drawable/logo_navr" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/splash_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="DKIT NAVR"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/holo_blue_bright"
-        />
+        app:srcCompat="@drawable/brand" />
 
 
 
