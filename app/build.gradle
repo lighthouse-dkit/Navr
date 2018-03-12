@@ -34,7 +34,10 @@ dependencies {
     //IndoorAtlas SDK
     compile 'com.indooratlas.android:indooratlas-android-sdk:2.6.1@aar'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.2.0'
+    compile 'com.indooratlas.android:indooratlas-android-wayfinding:2.7.0-beta-9'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
+
 
 
 
@@ -43,7 +46,6 @@ repositories {
     flatDir {
         dirs 'libs'
     }
-
 
 
 }
