@@ -17,6 +17,7 @@ public class BlueDotView extends SubsamplingScaleImageView {
 
     private float radius = 1.0f;
     private PointF dotCenter = null;
+    private int dotColour ;
 
     public void setRadius(float radius) {
         this.radius = radius;
@@ -24,6 +25,18 @@ public class BlueDotView extends SubsamplingScaleImageView {
 
     public void setDotCenter(PointF dotCenter) {
         this.dotCenter = dotCenter;
+    }
+
+    public void setDotColor(String color) {
+
+        int dotColor;
+        if(color.equalsIgnoreCase("Blue")){
+            dotColor=getResources().getColor(R.color.blue_dot);
+        }else
+        {
+            dotColor=getResources().getColor(R.color.red_dot);
+        }
+        this.dotColour = dotColor;
     }
 
     public BlueDotView(Context context) {
@@ -54,7 +67,7 @@ public class BlueDotView extends SubsamplingScaleImageView {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL);
-            paint.setColor(getResources().getColor(R.color.blue_dot));
+            paint.setColor(dotColour);
             canvas.drawCircle(vPoint.x, vPoint.y, scaledRadius, paint);
         }
     }

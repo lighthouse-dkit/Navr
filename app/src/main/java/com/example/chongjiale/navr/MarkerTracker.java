@@ -30,6 +30,7 @@ public class MarkerTracker extends Activity implements ImageTrackerListener, Ext
     private Driver mDriver;
     private GLRenderer mGLRenderer;
 
+    private DropDownAlert mDropDownAlert;
     private TargetCollectionResource mTargetCollectionResource;
 //    private DropDownAlert mDropDownAlert;
     @Override
@@ -44,7 +45,7 @@ public class MarkerTracker extends Activity implements ImageTrackerListener, Ext
 
 
         wikitudeSDK.onCreate(getApplicationContext(), this, startupConfiguration);
-        mTargetCollectionResource = wikitudeSDK.getTrackerManager().createTargetCollectionResource("file:///android_asset/tracker.wtc", new TargetCollectionResourceLoadingCallback() {
+        mTargetCollectionResource = wikitudeSDK.getTrackerManager().createTargetCollectionResource("file:///android_asset/location.wtc", new TargetCollectionResourceLoadingCallback() {
             @Override
             public void onError(int errorCode, String errorMessage) {
                 Log.v(TAG, "Failed to load target collection resource. Reason: " + errorMessage);
@@ -56,6 +57,12 @@ public class MarkerTracker extends Activity implements ImageTrackerListener, Ext
             }
         });
 
+
+        mDropDownAlert = new DropDownAlert(this);
+        mDropDownAlert.setText("Scan Target Marker :");
+        mDropDownAlert.addImages("sample.jpg");
+        mDropDownAlert.setTextWeight(0.5f);
+        mDropDownAlert.show();
     }
 
     @Override
@@ -105,7 +112,7 @@ public class MarkerTracker extends Activity implements ImageTrackerListener, Ext
     @Override
     public void onImageRecognized(ImageTracker tracker, final ImageTarget target) {
         Log.v(TAG, "Recognized target " + target.getName());
-
+        mDropDownAlert.dismiss();
         StrokedRectangle strokedRectangle = new StrokedRectangle(StrokedRectangle.Type.STANDARD);
         mGLRenderer.setRenderablesForKey(target.getName() + target.getUniqueId(), strokedRectangle, null);
         Intent intent = new Intent(this, RoomSearching.class);

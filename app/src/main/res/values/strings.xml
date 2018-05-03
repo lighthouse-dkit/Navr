@@ -62,6 +62,9 @@
         <item>Focus Manual</item>
     </string-array>
 
+    <string name="button_close">Close</string>
+    <string name="instruction">Instruction</string>
+    <string name="startInstruct"></string>
 
     <string name="storage_permission_denied_message">No access to external storage. Permission needed for displaying floor plans</string>
 </resources>

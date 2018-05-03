@@ -23,6 +23,7 @@ public class ArNavigateView extends SurfaceView implements SurfaceHolder.Callbac
     SurfaceHolder mHolder;
     Activity mActivity;
 
+
     public ArNavigateView(Context context, Activity activity) {
         super(context);
 
@@ -69,7 +70,6 @@ public class ArNavigateView extends SurfaceView implements SurfaceHolder.Callbac
                 break;
             }
         }
-
         mCamera.setParameters(params);
         mCamera.startPreview();
     }

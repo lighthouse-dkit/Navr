@@ -7,4 +7,14 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.example.chongjiale.navr.BlueDotView
+        android:id="@+id/destination"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

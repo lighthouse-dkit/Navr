@@ -20,9 +20,11 @@ public class RoomSearching extends AppCompatActivity implements
     private SearchView sv;
     private ListView lv;
 
-    private final String[] mStrings = { "P1100", "P1101", "P1102", "P1103", "P1104", "P1105", "P1106", "P1107", "P1108", "P1109", "P1110", "P1111", "P1112", "P1113", "P1114", "P1115" };
+    private final String[] mStrings = { "Entrance", "P1102", "P1103", "P1104", "P1105", "P1106", "P1107", "P1111", "P1119", "P1094"};
 
-    EditText from;
+    private final double[] latitude={53.98192369,53.98125554,53.98128356,53.98122578,53.98127367,53.98132047,53.98131208,53.98133749,53.98167981,53.98126547};
+    private final double[] longitude={-6.39274222,-6.39179356,-6.39164711,-6.39154307,-6.39130638,-6.39144483,-6.39148571,-6.39152689,-6.39170334,-6.39189292};
+    TextView from;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +33,16 @@ public class RoomSearching extends AppCompatActivity implements
 
         String roomName= getIntent().getStringExtra("Room_Name");
 
-        from= (EditText)findViewById(R.id.from);
+        from= (TextView)findViewById(R.id.from);
         from.setText(roomName);
-
-        /*
-        destination=(EditText)findViewById(R.id.destination);
-        destination.setText("test");
-
-
-        //Initialize Button
-        btnStartNav= (Button)findViewById(R.id.nav_button);
-        btnStartNav.setOnClickListener(this);
-        */
-
 
         lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, mStrings));
-        lv.setTextFilterEnabled(true);//设置lv可以被过虑
+        lv.setTextFilterEnabled(true);
         sv = (SearchView) findViewById(R.id.sv);
-        // 设置该SearchView默认是否自动缩小为图标
         sv.setIconifiedByDefault(false);
-        // 为该SearchView组件设置事件监听器
         sv.setOnQueryTextListener(this);
-        // 设置该SearchView显示搜索按钮
         sv.setSubmitButtonEnabled(false);
-        // 设置该SearchView内默认显示的提示文本
         sv.setQueryHint("Search room");
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,11 +50,12 @@ public class RoomSearching extends AppCompatActivity implements
                                     long arg3)
             {
                 String name = arg0.getItemAtPosition(position).toString();
-                // Toast.makeText(this, "Your destination:" + name, Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(RoomSearching.this,  ArNavigateActivity.class);
+                Intent intent = new Intent(RoomSearching.this,  PathFinding.class);
                 Toast.makeText(RoomSearching.this,"destination:"+name,Toast.LENGTH_LONG).show();
-
+                Bundle b = new Bundle();
+                b.putDouble("longitude",longitude[position] );
+                b.putDouble("latitude",latitude[position]);
+                intent.putExtras(b);
                 startActivity(intent);
 
             }
@@ -75,56 +63,32 @@ public class RoomSearching extends AppCompatActivity implements
 
     }
 
-    // 用户输入字符时激发该方法
     @Override
     public boolean onQueryTextChange(String newText) {
 
         if (TextUtils.isEmpty(newText)) {
-            // 清除ListView的过滤
             lv.clearTextFilter();
         } else {
-            // 使用用户输入的内容对ListView的列表项进行过滤
+
             lv.setFilterText(newText);
             lv.dispatchDisplayHint(View.INVISIBLE);
         }
         return true;
     }
 
-    // 单击搜索按钮时激发该方法
+
     @Override
     public boolean onQueryTextSubmit(String newText) {
-//        // 实际应用中应该在该方法内执行实际查询
-//        // 此处仅使用Toast显示用户输入的查询内容
-//        Toast.makeText(this, "Your destination:" + query, Toast.LENGTH_SHORT).show();
-//
-//
-//        Intent intent = new Intent(RoomSearching.this,  ArNavigateActivity.class);
-//        startActivity(intent);
-//
-//
-//
-//
-//        return false;
 
         if (TextUtils.isEmpty(newText)) {
-            // 清除ListView的过滤
+
             lv.clearTextFilter();
         } else {
-            // 使用用户输入的内容对ListView的列表项进行过滤
+
             lv.setFilterText(newText);
             lv.dispatchDisplayHint(View.INVISIBLE);
         }
         return true;
     }
 
-
-
-    /*
-
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(RoomSearching.this,  ArNavigateActivity.class);
-        startActivity(intent);
-    }
-    */
 }

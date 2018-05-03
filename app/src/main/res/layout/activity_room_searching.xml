@@ -17,10 +17,11 @@
             android:text="Start Point:"
             android:textStyle="bold"></TextView>
 
-        <EditText
+        <TextView
             android:id="@+id/from"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></EditText>
+            android:layout_height="wrap_content"
+            android:textSize="24sp"></TextView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,23 +29,6 @@
             android:layout_marginTop="30dp"
             android:text="Destination:"
             android:textStyle="bold"></TextView>
-        <!---
-                <EditText
-                    android:id="@+id/destination"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/nav_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="#dbdde0"
-                    android:text="Navigate" />
-        -->
-
-
 
 
         <SearchView

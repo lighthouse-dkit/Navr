@@ -1,6 +1,7 @@
 package com.example.chongjiale.navr;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wikitude.WikitudeSDK;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btnTrack;
     private final int CODE_PERMISSIONS=0;
+    TextView tx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnTrack= (Button)findViewById(R.id.tracking_button);
         btnTrack.setOnClickListener(this);
 
+        //start instruction
+        tx=(TextView)findViewById(R.id.instructionStep);
+        tx.setText("1) Click the 'Start' Button.\n" +
+                    "2) Find the unique marker around you.\n" +
+                    "3) Point the camera near to the marker.");
+
         //permission for location
         String[] neededPermissions={
                 Manifest.permission.CHANGE_WIFI_STATE,
@@ -43,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
         ActivityCompat.requestPermissions(this,neededPermissions,CODE_PERMISSIONS);
 
-//        double distance=calculateDistance(53.98192369, -6.39274222,53.98127213, -6.39178755);
-//        Toast.makeText(MainActivity.this,"Distance: "+distance,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -57,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void permissionsGranted(int requestCode) {
 
-                final Intent intent = new Intent(MainActivity.this,  MarkerTracker.class);
+                final Intent intent = new Intent(MainActivity.this, MarkerTracker.class);
                 startActivity(intent);
             }
 
@@ -91,23 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         WikitudeSDK.getPermissionManager().onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    //calculate distance based on lat long
-    public final static double AVERAGE_RADIUS_OF_EARTH_KM = 6371;
-    public double calculateDistance(double lat1, double lon1,double lat2,double lon2) {
-        double latDistance = Math.toRadians(lat1 - lat2);
-        double lngDistance = Math.toRadians(lon1 - lon2);
-
-        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(lngDistance / 2) * Math.sin(lngDistance / 2);
-
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-        //return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH_KM * c));
-
-        double meter=(AVERAGE_RADIUS_OF_EARTH_KM *c)*1000;
-        return meter;
-    }
 
 
 }

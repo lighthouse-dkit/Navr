@@ -177,9 +177,6 @@ public class ArNavigateActivity extends AppCompatActivity {
         mImageView.setImage(ImageSource.uri(filePath));
     }
 
-    /**
-     * Fetches floor plan data from IndoorAtlas server. Some room for cleaning up!!
-     */
     private void fetchFloorPlan(String id) {
         cancelPendingNetworkCalls();
         final IATask<IAFloorPlan> asyncResult = mFloorPlanManager.fetchFloorPlanWithId(id);
@@ -257,6 +254,7 @@ public class ArNavigateActivity extends AppCompatActivity {
                     finish();
                 }
                 break;
+
         }
 
     }

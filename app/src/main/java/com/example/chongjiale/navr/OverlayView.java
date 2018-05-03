@@ -41,9 +41,9 @@ public class OverlayView extends View implements SensorEventListener{
         Sensor compassSensor = sensors.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         Sensor gyroSensor = sensors.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
-        boolean isAccelAvailable = sensors.registerListener(this, accelSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        boolean isCompassAvailable = sensors.registerListener(this, compassSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        boolean isGyroAvailable = sensors.registerListener(this, gyroSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        boolean acceAvai = sensors.registerListener(this, accelSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        boolean comAvai = sensors.registerListener(this, compassSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        boolean gyAvai = sensors.registerListener(this, gyroSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
 
 //        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
